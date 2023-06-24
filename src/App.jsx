@@ -39,7 +39,7 @@ const handlePlayToggle = () => {
 
   return (
     <body className='bg-cover bg-center h-screen flex justify-center items-center ;'   >
-        <video loop muted className=' inset-0 bg-repeat absolute w-full h-full object-cover z-[-1]' src={video1} controls></video>
+        <video autoPlay loop muted className=' inset-0 bg-repeat absolute w-full h-full object-cover z-[-1]' src={video1} controls></video>
 
     <div>
       <div className='flex bg-[#4C4C4C] bg-opacity-50  h-[50px]  w-[500px] rounded-3xl items-center justify-between p-[12px] backdrop-blur-sm mb-[1px] ml-[150px]'>
