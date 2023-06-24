@@ -32,10 +32,18 @@ const handlePlayToggle = () => {
 
           </div>
 
-          <div  className='ml-[24px]'>
-            <ReactPlayer url={video} playing={playing} />
-            <button   className='absolute top-[50%] left-[45%]' onClick={handlePlayToggle} >{playing ? 'Pause' : 'Play'}
-            <img  id='play' className=' w-[40px] '  src={play} alt='Buttom-Plyer-Video'/> </button>
+          <div  className=' ml-[24px]  border-[2px] border-[#5F5F5F] '>
+            <ReactPlayer url={video} playing={playing}  className='w-[6500px]'/>
+            <button
+            className='absolute top-[50%] left-[45%]'
+            onClick={handlePlayToggle} >
+            {playing ? 'Pause' : 'Play'}
+
+            <img
+            id='play'
+            className=' w-[40px] '
+            src={play}
+            alt='Buttom-Plyer-Video'/> </button>
           </div>
 
     </div>
