@@ -60,14 +60,6 @@ const handlePlayToggle = () => {
           <img src={iconadd}></img>
           <img src={iconcopy}></img>
     </div>
-
-        {/* <div className='absolute left-0  bg-[#4C4C4C] bg-opacity-50 w-[45px] items-center flex-row h-[170px] rounded-3xl backdrop-blur-md p-[12px] ml-[575px] mt-[70px] justify-around'> */}
-
-
-
-
-{/*
-        </div> */}
           <div className=' flex   w-[800px] m-[24px] '>
              <div className='flex-col flex  bg-[#4C4C4C] bg-opacity-50 w-[45px] items-center  h-[170px] rounded-3xl backdrop-blur-md justify-between mt-[60px] p-[5px] '>
 
