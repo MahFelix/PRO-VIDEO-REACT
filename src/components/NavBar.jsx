@@ -10,7 +10,7 @@ import icontext from '../assets/icons/text.svg'
 
 const NavBar = () => {
   return (
-      <div id='navbar-header' className='flex bg-[#4C4C4C] bg-opacity-50 box-border  rounded-[80px] h-[64px]  w-[816px] items-center justify-between p-[12px] backdrop-blur-sm mb-[1px] ml-[110px]'>
+      <div id='navbar-header' className='flex bg-[#4C4C4C] bg-opacity-50 box-border  rounded-[80px] h-[64px]  w-[816px] items-center justify-between p-[12px] backdrop-blur-sm mb-[1px] ml-[155px]'>
           <button className='bg-[#4C4C4C]'><img src={iconakar}></img></button>
           <button><img src={iconchevron}></img></button>
          <button> <img src={iconchevronf}></img></button>
