@@ -1,49 +1,77 @@
 /* eslint-disable no-unused-vars */
-import ReactPlayer from 'react-player';
-import { useState } from 'react';
+import { useState,useRef,useEffect } from 'react';
 import video from '../video/videoback.mp4'
 import iconsearch from '../assets/icons/search.svg'
 import iconplayc from '../assets/icons/play-circle.svg'
 import iconalbums from '../assets/icons/albums.svg'
 import iconacess from '../assets/icons/acessibility.svg'
-import play from '../assets/icons/icons.tela de video/play.svg'
+import Play from '../assets/icons/icons.tela de video/play.svg'
+import Ret from '../assets/icons/retangle.svg'
+import Eli from '../assets/icons/elipse.svg'
 
 const BaseVideo = () => {
-const [playing, setPlaying] = useState(false);
-const VideoPlayer = () => {
-  const [playing, setPlaying] = useState(false);
+const [barprogs, setBarprogs] = useState()
+const myVideo = useRef()
 
 
-}
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  function PlayPause(e) {
+    if(myVideo.current.paused)
+      myVideo.current.play();
+    else
+      myVideo.current.pause()
+  }
 
-const handlePlayToggle = () => {
-  setPlaying(!playing);
-};
+  useEffect(() => {
+
+    const video = myVideo.current
+    const handleTimeUpdate = () => {
+
+      const percentage = (video.currentTime / video.duration) * 100;
+      setBarprogs(percentage);
+    };
+
+    video.addEventListener('timeupdate', handleTimeUpdate);
+
+    return () => {
+      video.removeEventListener('timeupdate', handleTimeUpdate);
+    };
+  }, [PlayPause]);
+
+   const handlePlayPause = () => {
+    const video = myVideo.current;
+
+    if (video.paused) {
+      video.play();
+    } else {
+      video.pause();
+    }
+  };
+
+
 
 
   return (
-     <div className=' flex   w-[800px] m-[24px] '>
-          <div className='flex-col flex  bg-[#4C4C4C] bg-opacity-50 w-[45px] items-center  h-[170px] rounded-3xl backdrop-blur-md justify-between mt-[60px] p-[5px] '>
+     <div className='flex items-center justify-center '>
 
-            <button onClick={handlePlayToggle} >{playing ? 'Pause' : 'Play' }<img src={iconplayc}></img></button>
-            <button><img className='m-[7px]'src={iconacess}></img></button>
-            <button><img className='m-[7px]'src={iconalbums}></img></button>
-            <button><img className='m-[5px]'src={iconsearch}></img></button>
-
+          <div id='navbar-side' className='flex-col flex bg-[#5F5F5F]  box-border w-[64px] bg-opacity-50  h-[220px] rounded-[80px] backdrop-blur-md justify-around items-center'>
+            <button className='bg-[#4C4C4C]' onClick={(e) =>PlayPause()} ><img src={iconplayc}></img></button>
+            <button><img className=''src={iconacess}></img></button>
+            <button><img className=''src={iconalbums}></img></button>
+            <button><img className=''src={iconsearch}></img></button>
           </div>
 
-          <div  className=' ml-[24px]  border-[2px] border-[#5F5F5F] '>
-            <ReactPlayer url={video} playing={playing}  className='w-[6500px]'/>
-            <button
-            className='absolute top-[50%] left-[45%]'
-            onClick={handlePlayToggle} >
-            {playing ? 'Pause' : 'Play'}
+          <div id='vid-principal' className='  border-[1px] border-[#5F5F5F] rounded-[40px] m-[24px]'>
+            <video ref={myVideo} src={video}  className=' flex  w-[960px] h-[540px] rounded-[40px] ' ></video>
 
-            <img
-            id='play'
-            className=' w-[40px] '
-            src={play}
-            alt='Buttom-Plyer-Video'/> </button>
+              <div className=' flex justify-center items-center '>
+            <button  className='absolute top-[50%] opacity-[0] hover:opacity-[100] w-[70px]  h-[70px]' onClick={(e) =>PlayPause()}><img className='w-[100px] h-[100px]' src={Play}></img></button>
+            </div>
+
+            <div className='flex absolute mt-[24px] left-[50%]'>
+              <div><img className='mr-[16px]' src={Eli}></img></div>
+                <div> <img src={Ret}></img></div>
+            </div>
           </div>
 
     </div>

@@ -10,25 +10,25 @@ import icontext from '../assets/icons/text.svg'
 
 const NavBar = () => {
   return (
-      <div className='flex bg-[#4C4C4C] bg-opacity-50  h-[50px]  w-[600px] rounded-3xl items-center justify-between p-[12px] backdrop-blur-sm mb-[1px] ml-[110px]'>
-          <button><img src={iconakar}></img></button>
+      <div id='navbar-header' className='flex bg-[#4C4C4C] bg-opacity-50 box-border  rounded-[80px] h-[64px]  w-[816px] items-center justify-between p-[12px] backdrop-blur-sm mb-[1px] ml-[110px]'>
+          <button className='bg-[#4C4C4C]'><img src={iconakar}></img></button>
           <button><img src={iconchevron}></img></button>
-          <button><img src={iconchevronf}></img></button>
+         <button> <img src={iconchevronf}></img></button>
 
-      <div className='flex bg-[#323232] w-[200px] rounded-3xl bg-opacity-50 p-[10px] justify-between h-[40px] '>
-           <button> <img src={icontext}></img></button>
+      <div id='navbar-mid' className='flex bg-[#323232]  w-[440px] rounded-3xl bg-opacity-50 p-[8px] justify-between h-[48px] '>
+           <button className='w-[16px] h-[16px] flex items-center justify-center mt-[8px]' > <img src={icontext}></img></button>
 
         <div className='flex items-center '>
-           <button> <img  className='w-] p-[]' src={iconlock}></img></button>
+           <button className='w-[16px] h-[16px]'> <img  className='' src={iconlock}></img></button>
            <h2 className='text-[white]'> rocketseat.com</h2>
         </div>
 
-           <button>  <img src={iconrefresh}></img></button>
+           <button className='p-[10px]'>  <img src={iconrefresh}></img></button>
       </div>
 
-          <img src={iconshare}></img>
-          <img src={iconadd}></img>
-          <img src={iconcopy}></img>
+          <button><img src={iconshare}></img></button>
+          <button><img src={iconadd}></img></button>
+          <button><img src={iconcopy}></img> </button>
     </div>
   )
 }
